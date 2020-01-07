@@ -1,0 +1,32 @@
+var isValid = function(s) {
+    if (s === "") {
+         return true;
+    }
+
+    //compliment hash table
+    map = {
+        ")" : "(",
+        "]" :"[",
+        "}" :"{" 
+    };
+    
+    let arr  = [];
+     for(let i = 0; i < s.length; i ++){
+     //add open brackets to stack
+        if(s[i] === "(" || s[i] === "[" || s[i] === "{"){
+            arr.push(s[i]);
+        }
+        //if you see a closing bracket, check for match
+        else{
+            if(arr[arr.length - 1] === map[s[i]]){
+                arr.pop();
+            }
+            else return false;
+        }
+    }
+      //if str is valid return true
+    return arr.length === 0 ? true : false;
+      
+      
+};
+
