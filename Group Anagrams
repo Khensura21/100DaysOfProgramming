@@ -1,0 +1,25 @@
+/**
+ * @param {string[]} strs
+ * @return {string[][]}
+ */
+var groupAnagrams = function(strs) {
+    //1. create a hash table
+    let map = {};
+    // console.log(key)
+    for (let str of strs) {
+        //2. for each word, sort its characters alphabetically, i.e. eat --> aet
+        let key = [...str].sort().join('');
+        //3. check to see if sorted word exist in hash table
+        if (!map[key]){
+            //if not, initial the encountered word with empty array
+             map[key] = [];
+        }
+        //4. push the unsorted word to its appropiate value's arr      
+        map[key].push(str)
+    }
+    //5. return desired results.. an array of grouped anagrams
+    return Object.values(map)
+};
+
+// runtime: O(n * klogk)
+// spacetime: O(n*k)
