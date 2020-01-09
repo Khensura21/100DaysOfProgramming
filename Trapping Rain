@@ -1,0 +1,37 @@
+/**
+ * @param {number[]} height
+ * @return {number}
+ */
+
+var trap = function(height) {
+    //brute force method
+    
+    //check if the height arr is empty
+    if (height == null || height.length === 0)
+            return 0;
+    
+    //Algorithim general idea:
+    //1. calculate how much water each bar can trap
+    //2. sum the amount of water of all bars to get total sum of trapped water
+     let trapWaterSum = 0
+     for (let i = 0; i< height.length; i++) {
+        let leftMax = 0
+        let rightMax = 0
+        //find max height on left side
+         for (let j = 0; j < i; j++) {
+            leftMax = Math.max(leftMax, height[j]);
+         }
+         //find max height on right side
+         for (let j = i + 1; j < height.length; j++) {
+            rightMax = Math.max(rightMax, height[j]);
+         }
+         /// calculate the water at every index
+        const water = Math.min(leftMax,rightMax) - height[i];
+          /// if water at index is greater than zero, add it to trapped water sum
+        trapWaterSum =  water > 0 ? trapWaterSum += water : trapWaterSum += 0
+    }
+    
+    
+   return trapWaterSum;
+   
+};
