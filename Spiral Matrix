@@ -1,0 +1,51 @@
+/**
+ * @param {number[][]} matrix
+ * @return {number[]}
+ */
+var spiralOrder = function(matrix) {
+    if (matrix.length === 0){
+        return [];
+    }
+    //variables
+    let startRow = 0;
+    let endRow = matrix.length - 1;
+    let startCol = 0;
+    let endCol = matrix[0].length - 1;
+    let res = [];
+    
+    while (startRow <= endRow && startCol <= endCol) {  
+        
+        //prints the first row of the remaining rows, left to right
+        for (let i = startCol; i <= endCol; i++) {
+            res.push(matrix[startRow][i])
+        }
+        startRow++;
+        //top to bottom
+        for (let i = startRow; i <= endRow; i++) {
+            res.push(matrix[i][endCol])
+        }
+        endCol--;
+    
+        //Right to left
+        if (startRow <= endRow) {
+            for(let i = endCol; i >= startCol; i--) {
+                res.push(matrix[endRow][i])
+            }
+        }
+        endRow--
+        //bottom to top
+        if (startCol <= endCol) {
+            for(let i = endRow; i >= startRow; i--) {
+                res.push(matrix[i][startCol])
+            }
+        }
+        startCol++
+    }
+    return res
+};
+
+
+
+
+//time complexity: O(nm)
+//space complexity : O(1)
