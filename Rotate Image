@@ -1,0 +1,28 @@
+/**
+ * @param {number[][]} matrix
+ * @return {void} Do not return anything, modify matrix in-place instead.
+ */
+var rotate = function(matrix) {
+    // the composite of two reflections across interesecting lines is equal to a rotation
+    //1st line of intersection - the middle array of the matrix 
+    //2nd line of intersect - the diagonal (Left to right) of the matrix
+
+  let n = matrix[0].length
+  //1.transpose the matrix --> O(n^2)
+  
+  for(let i = 0; i < n; i++) {
+      for(let j = i; j < n; j++) {
+          [ matrix[i][j], matrix[j][i] ] = [ matrix[j][i], matrix[i][j] ]
+      }
+  }
+
+    //2.Reverse each row of transposed matrix --> O(n^2)
+    
+    for (let i = 0; i < n; i++){
+        matrix[i].reverse()
+    }
+} 
+
+
+//total runtime: O(2n^2) --> O(n^2)
+//space complextiy : O(1)
