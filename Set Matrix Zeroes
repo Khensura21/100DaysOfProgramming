@@ -1,0 +1,37 @@
+/**
+ * @param {number[][]} matrix
+ * @return {void} Do not return anything, modify matrix in-place instead.
+ */
+var setZeroes = function(matrix) {
+    //brute force method
+     
+    let row = matrix.length
+    let col = matrix[0].length
+    
+    // 1. Create sets to flag column & row where zero is seen 
+    let row_set = new Set();
+    let col_set = new Set();
+    
+    // 2. Check each matrix cell to see if contain a zero, flag them if they do
+    for (let i = 0; i < row; i++) {
+        for(let j = 0; j < col; j++) {
+            if (matrix[i][j] === 0) {
+                row_set.add(i);
+                col_set.add(j);
+            }       
+        }
+    }
+    
+   // 3. check if row or column had been flag on each matrix entry, if so, set entry to zero in original matrix
+    for (let i = 0; i < row; i++) {
+        for (let j = 0; j < col; j++){
+            if (row_set.has(i) || col_set.has(j)) {
+                matrix[i][j] = 0;
+           }
+        }
+    }   
+    // return;
+};
+
+//runtime complexity: O(m * n), where m is the length of the rows and n is the length of the columnns
+//space complexity: O(m + n), 
