@@ -1,0 +1,46 @@
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val) {
+ *     this.val = val;
+ *     this.left = this.right = null;
+ * }
+ */
+/**
+ * @param {TreeNode} root
+ * @return {number[]}
+ */
+var postorderTraversal = function(root) {
+    // 1. Iterative solution
+    if(!root) return [];
+    let helper = [root];
+    let resultStack = [];
+    while(helper.length !== 0){
+        curr = helper.pop();
+        if(curr){
+             resultStack.push(curr.val);
+        }
+       
+        if(curr && curr.left) helper.push(curr.left);
+        if(curr && curr.right) helper.push(curr.right);
+        
+    }  
+    return resultStack.reverse()
+    
+    //2. Recursive solution
+    //Runtime Complexity: O(n), since it has to vist every node in tree
+    //Space Complexity: O(n), since at worst, the tree can be skewed & the recursive call stack could       
+    //hold up into the entire tree
+    
+//     if(!root) return [];
+//     let res = [];
+//     dfs(root)
+    
+//     function dfs(node) {
+//         if (node != null) {
+//             dfs(node.left)
+//             dfs(node.right)
+//             res.push(node.val);
+//         }
+//     }
+//     return res
+};
