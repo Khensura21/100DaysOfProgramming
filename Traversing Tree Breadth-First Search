@@ -1,0 +1,35 @@
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val) {
+ *     this.val = val;
+ *     this.left = this.right = null;
+ * }
+ */
+/**
+ * @param {TreeNode} root
+ * @return {number[][]}
+ */
+var levelOrder = function(root) {
+    if (!root) return []
+    let q = [];
+    let res = [];
+    let curr = root;
+    q.push(curr);
+    while (q.length) {
+        let tmp = [];
+        let currLevel = q.length;
+        for (let i = 0; i < currLevel; i++) {
+            curr = q.shift();
+            tmp.push(curr.val);
+            if (curr.left) q.push(curr.left);
+            if (curr.right) q.push(curr.right);
+        }
+        res.push(tmp)
+    }
+    
+    return res;
+
+};
+
+//runtime: O(n), where n is the number of nodes in the tree
+//space complexity: O(n), since we have a queue to help us with traversing, and at worst, that queue could be holding n nodes
