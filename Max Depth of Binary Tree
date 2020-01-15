@@ -1,0 +1,24 @@
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val) {
+ *     this.val = val;
+ *     this.left = this.right = null;
+ * }
+ */
+/**
+ * @param {TreeNode} root
+ * @return {number}
+ */
+//bottom up recursive approach
+var maxDepth = function(root) {
+    if (!root) {
+        return 0
+    }
+    let left_ans = maxDepth(root.left)
+    let right_ans = maxDepth(root.right)
+    return Math.max(left_ans, right_ans) + 1;
+    
+};
+
+//runtime: O(n), where n is the number of nodes in tree
+//space complex: O(n), if the binary tree is totally unbalanced. But average and best case is usually O(log(n))
