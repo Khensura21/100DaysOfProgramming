@@ -1,0 +1,60 @@
+/**
+ * Definition for singly-linked list.
+ * function ListNode(val) {
+ *     this.val = val;
+ *     this.next = null;
+ * }
+ */
+/**
+ * @param {ListNode} l1
+ * @param {ListNode} l2
+ * @return {ListNode}
+ */
+var addTwoNumbers = function(l1, l2) {
+    //make sure both linked list exist
+    if (!l1) {
+        return l2;
+    }
+    
+    if (!l2) {
+        return l1;
+    }
+    
+    let l1_vals = []; 
+    let l2_vals = [];
+    
+     //Add values from both linked lists to respective stack
+    while (l1) {
+        l1_vals.push(l1.val);
+        l1 = l1.next;
+    }
+    
+    while (l2) {
+        l2_vals.push(l2.val);
+        l2 = l2.next;
+    }
+
+    //Sum the digits in reverse order
+    let prev = null;
+    let carry = 0;
+    while (l1_vals.length || l2_vals.length || carry) {
+        let num1 = l1_vals.pop() || 0; //pop first num from l1 values stack, make zero if not a val num
+        let num2 = l2_vals.pop() || 0; //pop sec num from l2 values stack, make zero if not a val num
+        let sum = num1 + num2 + carry;
+        //check if sum 'overflow' from ones to tens place, if so, add a 1 to carry var
+       carry = sum > 9 ? 1 : 0;
+    
+        //build the list backways
+            // 7,
+            //          prev
+            //results = 7 -> 8 -> 0 -> 7 -> null
+        const newNode = new ListNode(sum % 10) ;
+        newNode.next = prev;
+        prev = newNode;
+    }
+    return prev;
+ 
+};
+
+//runtime: O(max(n,m))
+//spacetime: O(max(n,m))
