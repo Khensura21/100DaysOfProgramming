@@ -1,0 +1,38 @@
+/**
+ * Definition for singly-linked list.
+ * function ListNode(val) {
+ *     this.val = val;
+ *     this.next = null;
+ * }
+ */
+
+/**
+ * @param {ListNode} head
+ * @return {boolean}
+ */
+
+var hasCycle = function(head) {
+//Two Pointer Method
+    
+    //check if link list has zero or one node
+    if(!head || !head.next){
+        return false;
+    }
+  
+    let slow = head; //slow pointer
+    let fast = head.next; //fast pointer
+    
+    //While fast doesn't point to slow ref 
+    while (slow != fast) {
+        if (fast == null || fast.next == null) {
+            return false
+        } 
+        slow = slow.next
+        fast = fast.next.next
+    }
+    //otherwise a cycle has been detected 
+    return true 
+};
+
+//runtime: O(n), where n is the number of nodes in the link list
+//spacetime: O(1)
