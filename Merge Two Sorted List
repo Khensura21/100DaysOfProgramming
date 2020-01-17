@@ -1,0 +1,48 @@
+/**
+ * Definition for singly-linked list.
+ * function ListNode(val) {
+ *     this.val = val;
+ *     this.next = null;
+ * }
+ */
+/**
+ * @param {ListNode} l1
+ * @param {ListNode} l2
+ * @return {ListNode}
+ */
+var mergeTwoLists = function(l1, l2) {
+    //check if both list are valid
+    if (!l1) return l2;
+    if (!l2) return l1;
+    //1->2->4, 
+    // 1->3->4 
+    //
+    let dumNode = new ListNode(null);
+    let buildNode = dumNode;
+    
+    //while both node haven't reached null space
+    while (l1 && l2) {
+        //check to see the smaller of the two curr LL values
+        if (l1.val <= l2.val) { //if the first list value is smaller, connect the build node to it
+            buildNode.next = l1;
+            l1 = l1.next; //traverse 
+
+        } else {//otherwise the l2 value is smaller, so connect the build node to that list instead
+            buildNode.next = l2;
+            l2 = l2.next
+        }
+         //regardless of which node we connect, update buildNode to keep it one step behind 
+        //the furthest amongst l1 and l2 traversal
+        buildNode = buildNode.next;
+    }
+    
+    
+    //after loop terminates, exactly one of the list is non-null, 
+    //so connect the remainining of non-null list to end of merged list
+    buildNode.next = l1 != null ? l1 : l2
+    return dumNode.next;
+};
+
+//runtime: O(n+m), where the while loop will run at least n + m iterations. n, m are the length of 
+//        m and n respectively
+//space complexity: O(1), since we only have vars for the few pointers
