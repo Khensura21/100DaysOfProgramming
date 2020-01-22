@@ -1,0 +1,26 @@
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val) {
+ *     this.val = val;
+ *     this.left = this.right = null;
+ * }
+ */
+/**
+ * @param {TreeNode} root
+ * @return {boolean}
+ */
+//bottom down recursion
+var isValidBST = function(root) {
+    
+    if(!root) return true
+    
+    return traverse(root, -Infinity, Infinity);
+    
+    function traverse(node, low = -Infinity, high = Infinity) {
+        if (!node) return true; // we reached the end of the path
+        
+        if (node.val <= low || node.val >= high) return false;
+        
+        return traverse(node.left, low, node.val) && traverse(node.right, node.val, high);
+    }
+};
