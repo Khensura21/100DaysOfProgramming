@@ -1,0 +1,41 @@
+/**
+ * Definition for singly-linked list.
+ * function ListNode(val) {
+ *     this.val = val;
+ *     this.next = null;
+ * }
+ */
+
+/**
+ * @param {ListNode} headA
+ * @param {ListNode} headB
+ * @return {ListNode}
+ */
+var getIntersectionNode = function(headA, headB) {
+    //Hashset Solution
+    
+    //1. Check for existent of both LLs
+    if (!headA || !headB) return null;
+    
+    //2. Store headA Nodes in set
+    let nodesA = new Set();
+    
+    while (headA != null) {
+       nodesA.add(headA)
+       headA = headA.next;
+    }
+    
+    //3. Check to see if any of headB nodes are in the set of headA nodes
+    while (headB != null) {
+        if (nodesA.has(headB)){ 
+            return headB; //if so, return the common, merger node
+        }
+        headB = headB.next;
+    }
+    
+    //4. Otherwise the two list have no merger node, so return null
+    return null;
+};
+
+//runtime: O (n + m), where n is the length of heada and  m length of headb
+//space complexity: O(n), where n is the space taken by the hash set used for list heada
