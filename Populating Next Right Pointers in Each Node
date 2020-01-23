@@ -1,0 +1,45 @@
+/**
+ * // Definition for a Node.
+ * function Node(val, left, right, next) {
+ *    this.val = val === undefined ? null : val;
+ *    this.left = left === undefined ? null : left;
+ *    this.right = right === undefined ? null : right;
+ *    this.next = next === undefined ? null : next;
+ * };
+ */
+/**
+ * @param {Node} root
+ * @return {Node}
+ */
+var connect = function(root) {
+    
+    if (!root || !root.left) {
+        return root;
+    }
+        
+    //1. create queue and initialize it with the root
+    let Q = [root];
+//while loop to process Q until empty
+    while (Q.length) {
+        //get what level we are currently on 
+        let size = Q.length;  //4
+        //iterate over all the nodes on current level
+        for (let i = 0; i < size; i++) {
+            //pop a node from infront of the queue
+            let node = Q.shift();    
+            
+            //this checks to see if we are on correct level 
+           if (i < size - 1) //size = 4   
+               node.next = Q[0]; 
+            
+            //add children if any  
+            if (node.left)   //res=[2-->3, 4-->5-->6-->7] 
+                Q.push(node.left);
+            
+            if (node.right)
+                Q.push(node.right);
+        }
+    }
+    //return the modified root
+    return root;
+};
