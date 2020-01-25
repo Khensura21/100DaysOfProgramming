@@ -1,0 +1,43 @@
+/**
+ * // Definition for a Node.
+ * function Node(val, left, right, next) {
+ *    this.val = val === undefined ? null : val;
+ *    this.left = left === undefined ? null : left;
+ *    this.right = right === undefined ? null : right;
+ *    this.next = next === undefined ? null : next;
+ * };
+ */
+/**
+ * @param {Node} root
+ * @return {Node}
+ */
+var connect = function(root) {
+    //sanity check 
+    if (!root)
+        return root;
+    //initialize Q with root node
+    let Q = [root];
+    //process nodes via BFS
+    while (Q.length) {
+        let size = Q.length; //get of each level of BT
+        for(let i = 0; i < size; i++) {//Iterate over each node on given level
+            //remove from the Queue
+            let node = Q.shift();
+
+            //do a check to insure we are on correct level
+            if ( i < size - 1)
+                node.next = Q[0]; //if so, point the curr node next to the first node in the  queue
+                                    //which in essence is the next node on given level
+            //check if curr node have siblings
+            if (node.left)
+                Q.push(node.left)
+            if (node.right)
+                Q.push(node.right)
+    //if so add them to the Queue to be processed
+        }
+    }
+//once the Queue is empty return the root , which is now modified
+    return root;
+};
+//Run time: O(n), since we process each node of the tree
+//Spacetime: O(n), worst case , we could be dealing with a skewed BT
