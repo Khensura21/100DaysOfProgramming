@@ -1,0 +1,35 @@
+*     this.left = this.right = null;
+ * }
+ */
+/**
+ * @param {TreeNode} root
+ * @param {TreeNode} p
+ * @param {TreeNode} q
+ * @return {TreeNode}
+ */
+var lowestCommonAncestor = function(root, p, q) {
+    
+  //call helper function
+    return traverse(root,p,q)
+    function traverse(node, p, q) {
+        //helper function base case
+        if (node == null)
+            return null;
+        if (node.val == p.val || node.val == q.val)
+            return node;
+        
+        let searchLeft = traverse(node.left, p, q);
+        let searchRight = traverse(node.right, p, q)
+        
+        if (searchLeft == null)
+            return searchRight;
+        
+        if (searchRight== null)
+            return searchLeft;
+        
+        return node;
+    }
+}
+//RUNTIME : O(N), where n is the number of nodes in tree
+//Space complexity: O(H), where H is the height of the tree, that is skewed
+    
