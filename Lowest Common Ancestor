@@ -1,0 +1,23 @@
+var lowestCommonAncestor = function(root, p, q) {
+    
+    let parentVal = root.val;
+    let pVal = p.val;
+    let qVal = q.val;
+    
+    
+    //check if p and q are greater than parent/current node val
+    if (pVal > parentVal && qVal > parentVal)
+        return lowestCommonAncestor(root.right, p, q);
+    
+    //check if p and q are less than current/ parent node
+    else if (pVal < parentVal && qVal < parentVal)
+        return lowestCommonAncestor(root.left, p, q)
+    
+    
+    //otherwise we have found the split, the LCA of p & q
+    else
+        return root;
+    
+};
+// Time complexity: O(n), where n is the number of nodes in the tree
+// Space complexity: O(h), where h = n due to a skewed tree
