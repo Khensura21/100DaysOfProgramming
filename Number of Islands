@@ -1,0 +1,40 @@
+/**
+ * @param {character[][]} grid
+ * @return {number}
+ */
+var numIslands = function(grid) {
+    //sanity check
+    if (grid.length == 0 || grid == null) {
+        return 0;
+    }
+    //declare var that will be returned 
+    let numIslands = 0;
+    
+    //traverse the entire grid
+    for (let i = 0; i < grid.length; i++) { 
+        for (let j = 0; j < grid[i].length; j++) {
+            //once we see a '1', that's when we want to do something
+            if (grid[i][j] == '1') {
+                numIslands += dfs(grid, i, j);  //increment the num of islands using helper function
+            }
+        }
+    }
+    
+    //after we traverse the entire grid, just return answer--numOfIslands
+    return numIslands;
+    //recursive helper function
+    function dfs(grid, i, j) {
+        //checks to make sure we are still inbound of matrix and that we havent hit a zero
+        if (i < 0 || i >= grid.length || j < 0 || j >= grid[i].length || grid[i][j] == '0')
+            return 0;
+        
+        //otherwise, set current '1' to '0', i.e., sink the island..
+        grid[i][j] = '0';
+        dfs(grid, i+1, j); //check neighbor below
+        dfs(grid, i-1, j); //check neighbor above
+        dfs(grid, i, j+1); //check neighbor to the right
+        dfs(grid,i, j-1); //check neighbor to the left
+        return 1; //takes into the account the orig island we are visiting,i.e initial call of dfs
+    }
+    
+};
