@@ -1,0 +1,24 @@
+**
+ * Definition for a binary tree node.
+ * function TreeNode(val) {
+ *     this.val = val;
+ *     this.left = this.right = null;
+ * }
+ */
+/**
+ * @param {number[]} preorder
+ * @param {number[]} inorder
+ * @return {TreeNode}
+ */
+var buildTree = function(preorder, inorder) {
+    function helper(p, i){
+        if(!p.length || !i.length) return null;
+        let val = p[0];
+        let pos = i.indexOf(val);//the root position, and also the number of left nodes
+        let root = new TreeNode(val);
+        root.left = helper(p.slice(1, 1 + pos), i.slice(0, pos));
+        root.right = helper(p.slice(1 + pos), i.slice(1 + pos));
+        return root;
+    }
+    return helper(preorder, inorder);
+};
