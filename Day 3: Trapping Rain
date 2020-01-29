@@ -1,3 +1,9 @@
+//#Day3
+//#100DaysOfProgramming
+//Time Spent: 90 mins
+//Summary of Challenge: Given n non-negative integers representing an elevation map where the width of each bar is 1, compute how much water it is able to trap after raining.
+
+
 /**
  * @param {number[]} height
  * @return {number}
