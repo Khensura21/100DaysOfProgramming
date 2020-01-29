@@ -1,3 +1,9 @@
+//#Day13
+//#100DaysOfProgramming
+//Time Spent: 60 mins
+//Summary of Challenge: Given a linked list, determine if it has a cycle in it.
+
+
 /**
  * Definition for singly-linked list.
  * function ListNode(val) {
