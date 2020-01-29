@@ -1,3 +1,8 @@
+/#Day6
+//#100DaysOfProgramming
+//Time Spent: 90 mins
+//Summary of Challenge: Given a matrix of m x n elements (m rows, n columns), return all elements of the matrix in spiral order
+
 /**
  * @param {number[][]} matrix
  * @return {number[]}
