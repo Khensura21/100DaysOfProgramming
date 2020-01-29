@@ -1,0 +1,72 @@
+//#Day4
+//#100DaysOfProgramming
+//Time Spent: 90 mins
+//Summary of Challenge: You are given an n x n 2D matrix representing an image. Rotate the image by 90 degrees (clockwise).
+
+/**
+ * @param {number[]} height
+ * @return {number}
+ */
+
+var trap = function(height) {
+    //brute force method
+    
+    //check if the height arr is empty
+    if (height == null || height.length === 0)
+            return 0;
+    
+    //Algorithim general idea:
+    //1. calculate how much water each bar can trap
+    //2. sum the amount of water of all bars to get total sum of trapped water
+     let trapWaterSum = 0
+     for (let i = 0; i< height.length; i++) {
+        let leftMax = 0
+        let rightMax = 0
+        //find max height on left side
+         for (let j = 0; j < i; j++) {
+            leftMax = Math.max(leftMax, height[j]);
+         }
+         //find max height on right side
+         for (let j = i + 1; j < height.length; j++) {
+            rightMax = Math.max(rightMax, height[j]);
+         }
+         /// calculate the water at every index
+        const water = Math.min(leftMax,rightMax) - height[i];
+          /// if water at index is greater than zero, add it to trapped water sum
+        trapWaterSum =  water > 0 ? trapWaterSum += water : trapWaterSum += 0
+    }
+    
+    
+   return trapWaterSum;
+   
+};
+
+
+/**
+ * @param {number[][]} matrix
+ * @return {void} Do not return anything, modify matrix in-place instead.
+ */
+var rotate = function(matrix) {
+    // the composite of two reflections across interesecting lines is equal to a rotation
+    //1st line of intersection - the middle array of the matrix 
+    //2nd line of intersect - the diagonal (Left to right) of the matrix
+
+  let n = matrix[0].length
+  //1.transpose the matrix --> O(n^2)
+  
+  for(let i = 0; i < n; i++) {
+      for(let j = i; j < n; j++) {
+          [ matrix[i][j], matrix[j][i] ] = [ matrix[j][i], matrix[i][j] ]
+      }
+  }
+
+    //2.Reverse each row of transposed matrix --> O(n^2)
+    
+    for (let i = 0; i < n; i++){
+        matrix[i].reverse()
+    }
+} 
+
+
+//total runtime: O(2n^2) --> O(n^2)
+//space complextiy : O(1)
