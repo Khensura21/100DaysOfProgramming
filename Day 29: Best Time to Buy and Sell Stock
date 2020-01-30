@@ -1,0 +1,40 @@
+**
+ * @param {number[]} prices
+ * @return {number}
+ */
+var maxProfit = function(prices) {
+    //suboptimal solution
+    //runtime : O(n^2)
+    //space: O(1)
+    
+//     let profit = 0;
+    
+// //     for (let i = 0; i < prices.length-1; i++) {
+// //         for(let j = i + 1; j < prices.length; j++){
+// //             profit = Math.max(profit, (prices[j]-prices[i]))    
+// //         } 
+// //     }
+    
+// // return profit
+    
+////////Optimal solution ///////////
+    //runtime: O(n), since you only need one pass thru
+    //space complexity: O(1)
+    
+    //1. declare variables
+    let maxProfit = 0; 
+    let minNum = 25000; //intialize to a large num
+    
+    //2.iterate through prices array
+    for (let i = 0; i < prices.length; i++) {
+        //check for min
+        if (prices[i] < minNum){
+            minNum = prices[i]
+        }
+        //otherwise, check if current day yields max profit
+        else if (prices[i] - minNum > maxProfit){
+            maxProfit = prices[i] -minNum;
+        }
+    }
+    return maxProfit
+};
