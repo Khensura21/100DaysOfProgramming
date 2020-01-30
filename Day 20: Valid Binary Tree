@@ -1,3 +1,8 @@
+//#Day20
+//#100DaysOfProgramming
+//Time Spent: 50 mins
+//Summary of Challenge: Given a binary tree, determine if it is a valid binary search tree (BST).
+
 /**
  * Definition for a binary tree node.
  * function TreeNode(val) {
