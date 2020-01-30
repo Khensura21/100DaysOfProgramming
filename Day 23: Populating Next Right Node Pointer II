@@ -1,3 +1,10 @@
+//#Day23
+//#100DaysOfProgramming
+//Time Spent: 60 mins
+//Summary of Challenge: Given a binary tree, Populate each next pointer to point to its next right node. 
+//If there is no next right node, the next pointer should be set to NULL.
+//Initially, all next pointers are set to NULL.
+
 /**
  * // Definition for a Node.
  * function Node(val, left, right, next) {
