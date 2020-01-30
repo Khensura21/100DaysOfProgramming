@@ -1,3 +1,9 @@
+//#Day17
+//#100DaysOfProgramming
+//Time Spent: 60 mins
+//Summary of Challenge: Given an array of strings, group anagrams together.
+
+
 /**
  * @param {string[]} strs
  * @return {string[][]}
