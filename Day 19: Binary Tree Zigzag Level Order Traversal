@@ -1,3 +1,10 @@
+//#Day19
+//#100DaysOfProgramming
+//Time Spent: 50 mins
+//Summary of Challenge: Given a binary tree, return the zigzag level order traversal of its nodes' values.
+//(ie, from left to right, then right to left for the next level and alternate between).
+
+
 /**
  * Definition for a binary tree node.
  * function TreeNode(val) {
