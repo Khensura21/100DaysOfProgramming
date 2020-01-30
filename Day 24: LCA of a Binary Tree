@@ -1,6 +1,9 @@
-*     this.left = this.right = null;
- * }
- */
+//#Day24
+//#100DaysOfProgramming
+//Time Spent: 60 mins
+//Summary of Challenge: Given a binary search tree (BST), find the lowest common ancestor (LCA) of two given nodes in the BST.
+ 
+ 
 /**
  * @param {TreeNode} root
  * @param {TreeNode} p
