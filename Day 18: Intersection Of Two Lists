@@ -1,3 +1,10 @@
+
+//#Day18
+//#100DaysOfProgramming
+//Time Spent: 60 mins
+//Summary of Challenge: Write a program to find the node at which the intersection of two singly linked lists begins.
+
+
 /**
  * Definition for singly-linked list.
  * function ListNode(val) {
