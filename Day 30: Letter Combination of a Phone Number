@@ -1,0 +1,51 @@
+/#Day30
+//#100DaysOfProgramming
+//Time Spent: 54 mins
+//Summary of Challenge: Given a string containing digits from 2-9 inclusive, 
+//return all possible letter combinations that the number could represent.
+//Thoughts: This was very challenging. I couldn't solve on my own, so I looked at some solutions. Still, it took me a while to 
+//understand, I definitely need to go through this problem again
+
+
+/**
+ * @param {string} digits
+ * @return {string[]}
+ */
+var letterCombinations = function(digits) {
+    //sanity check
+    if (digits == null || digits.length == 0){
+        return []
+    }
+    
+    //a hashtable to map num to array of chars
+    let map = {
+        "2" : ['a','b','c'],
+        "3" : ['d','e','f'],
+        "4" : ['g','h','i'],
+        "5" : ['j','k','l'],
+        "6" : ['m','n','o'],
+        "7" : ['p','q','r','s'],
+        "8" : ['t','u','v'],
+        "9" : ['w','x','y','z']
+    }
+    
+    function recursion(i){
+        if (i == digits.length - 1){
+            return map[digits[i]]
+        }
+        let result = [];
+    
+        for(let char of map[digits[i]]) {
+            for(let next of recursion(i+1)) {
+                result.push(char + next);
+            }
+        }
+        return result
+    }
+    
+    return recursion(0)
+};
+
+
+//runtime: ??
+//space complexity: ???
