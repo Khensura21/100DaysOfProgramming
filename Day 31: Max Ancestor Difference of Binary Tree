@@ -1,8 +1,10 @@
-
-
-//Given the root of a binary tree, 
-//find the maximum value V for which there exists different nodes A and B where V = |A.val - B.val| and A is an ancestor of B.
-
+/#Day31
+//#100DaysOfProgramming
+//Time Spent: 31 mins
+//Summary of Challenge: Given the root of a binary tree, 
+//Find the maximum value V for which there exists different nodes A and B where V = |A.val - B.val| and A is an ancestor of B.
+//Thoughts: I had no idea how to do this problem. Below was my attempt, but I got no where. I have to look at some of the solutions so
+//I can ultimately solve it
 
 /**
  * Definition for a binary tree node.
