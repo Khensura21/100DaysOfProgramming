@@ -1,6 +1,8 @@
-
-
-
+#Day32
+//#100DaysOfProgramming
+//Time Spent: 1 hr 
+//Summary of Challenge: Given an array containing n distinct numbers taken from 0, 1, 2, ..., n, find the one that is missing from the array.
+//Thoughts: I solved the problem initially with a suboptimal approach. Then, too get to the optimal solutions, it required me to look at previous solutions
 
 /**
  * @param {number[]} nums
