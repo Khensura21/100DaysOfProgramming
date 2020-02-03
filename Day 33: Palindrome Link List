@@ -1,0 +1,48 @@
+#Day32
+//#100DaysOfProgramming
+//Time Spent: 30 mins
+//Summary of Challenge: Given a singly linked list, determine if it is a palindrome.
+//Thoughts: I was able to solve this problem in 30 minutes. It was one of the easier problems, so I wanted to see if I could solve it 
+//optimally as well since below is a suboptimal solution. I have to continue to get better at bettering the time and space 
+//complexities of my initially brute force method
+
+/**
+ * Definition for singly-linked list.
+ * function ListNode(val) {
+ *     this.val = val;
+ *     this.next = null;
+ * }
+ */
+/**
+ * @param {ListNode} head
+ * @return {boolean}
+ */
+var isPalindrome = function(head) {
+    //brute force method
+    
+    //sanity check for empty link list or sanity check for one node link list
+    if (head == null || !head.next)
+        return true;
+    
+    let res = []
+    
+    while(head){
+        res.push(head.val)
+        head = head.next;
+    }
+    
+    let i = 0;
+    let j = res.length-1; 
+    
+    while (i < j){
+        if (res[i] != res[j]){
+            return false
+        }
+        i++;
+        j--   
+    }
+    return true
+
+//runtime , O(n + n/2) ==> O(n)
+//space complexity, O(n), where n is the number of nodes
+};
