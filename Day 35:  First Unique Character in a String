@@ -1,0 +1,7 @@
+
+#Day34
+//#100DaysOfProgramming
+//Time Spent: 30 mins
+//Summary of Challenge: Given a string, find the first non-repeating character in it and return it's index. 
+//If it doesn't exist, return -1.
+//Thoughts:
