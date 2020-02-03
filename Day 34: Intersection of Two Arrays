@@ -1,1 +1,37 @@
-Given two arrays, write a function to compute their intersection.
+#Day34
+//#100DaysOfProgramming
+//Time Spent: 30 mins
+//Summary of Challenge: Given two arrays, write a function to compute their intersection.
+//Thoughts: I felt like the solution was pretty straight forward. I look for an additional ten minutes at other code solutions 
+//in  other languages to see if there was an optimal solution. 
+
+
+**
+ * @param {number[]} nums1
+ * @param {number[]} nums2
+ * @return {number[]}
+ */
+var intersect = function(nums1, nums2) {
+    //sanity check 
+    if (nums1.length == null || nums2.length == null){
+        return [];
+    }
+    let freq = {}
+    let res = [];
+    for (let i = 0; i < nums1.length; i++) {
+        if (freq[nums1[i]]) {
+            freq[nums1[i]]++;
+        } else {
+            freq[nums1[i]] = 1;
+        }
+    }
+    
+    for (let i = 0; i < nums2.length; i++) {
+        if (freq[nums2[i]]){
+            res.push(nums2[i]);
+            freq[nums2[i]]--;
+        }
+    }
+   
+    return res
+};
