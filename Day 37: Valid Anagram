@@ -1,0 +1,38 @@
+/#Day37
+//#100DaysOfProgramming
+//Time Spent: 50 mins
+//Summary of Challenge: Given two strings s and t , write a function to determine if t is an anagram of s.
+//Thoughts: I dont know why thsi took me so long to get. I guess I didnt understand the properties of Javascript data structures
+//like I thought I did. Yikes...
+
+
+/**
+ * @param {string} s
+ * @param {string} t
+ * @return {boolean}
+ */
+var isAnagram = function(s, t) {
+    //sanity check 
+     if (s.length != t.length)
+        return false
+    
+    
+   //create hash set out of s 
+    let map = {};
+    
+    for (let i = 0; i < s.length; i++){
+        map[s[i]] ? map[s[i]]++ : map[s[i]] = 1
+    }
+    //check if all chars in t is equal to all chars in s
+    for (let j = 0; j < t.length; j++) {
+      if (map[t[j]]) {
+          map[t[j]]--
+      } else {
+          return false
+      }
+   }
+    //if they have all the same unique values return true
+    return true
+};
+//runtime: O(n)
+//space: o(n)
