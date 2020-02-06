@@ -4,4 +4,39 @@
 //Time Spent: 30 mins
 //Summary of Challenge: Given a string, find the first non-repeating character in it and return it's index. 
 //If it doesn't exist, return -1.
-//Thoughts:
+//Thoughts: Intuitively, this is a simple algorithm. I let it get the best of me, and didn't follow my intuition. 
+//After examining the solution, I realize it was right. this was a frequency counter type of problem and my answer could be solved 
+
+
+/**
+ * @param {string} s
+ * @return {number}
+ */
+var firstUniqChar = function(s) {
+    //sanity check
+    if (s == null || s.length == 0){
+        return -1;
+    }
+
+    //create obj to hold each char freq.
+    let charz = {}
+    //iterate thru string, mapping its chars and their freq
+    for (let i = 0; i < s.length; i++) {
+        if (charz[s[i]]){
+            charz[s[i]]++;
+        } else {
+            charz[s[i]] = 1
+        }
+    }
+    //iterate once more through str, checking for first occurence of first non repeat char
+    for (let i = 0; i < s.length; i++ ) {
+            if (charz[s[i]] == 1) {
+                return i;
+              }
+    }
+    //if none exist return -1
+    return -1
+};
+
+//runtime: O(n)
+//space complexity: O(n)
