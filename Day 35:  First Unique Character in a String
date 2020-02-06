@@ -5,7 +5,8 @@
 //Summary of Challenge: Given a string, find the first non-repeating character in it and return it's index. 
 //If it doesn't exist, return -1.
 //Thoughts: Intuitively, this is a simple algorithm. I let it get the best of me, and didn't follow my intuition. 
-//After examining the solution, I realize it was right. this was a frequency counter type of problem and my answer could be solved 
+//After examining the solution, I realize it was right. this was a frequency counter type of problem and my answer could be solved
+//Utilizing a obj/dictionary
 
 
 /**
