@@ -1,0 +1,26 @@
+#Day36
+//#100DaysOfProgramming
+//Time Spent: 30 mins
+//Summary of Challenge: 
+//Thoughts: This was a challenging problem. I gave it 45 mins and still wasn't able to solve for all test cases. Below is my code 
+//code for solving 69 out of the 109 cases. I will definitely study the optimal solution approach more
+
+
+/**
+ * @param {number[]} digits
+ * @return {number[]}
+ */
+var plusOne = function(digits) {
+  let num  = 0;
+    
+    for (let i in digits)
+        num += (digits[i] * Math.pow(10, (digits.length-1-i)))
+    
+    num++;
+    num += ''
+    let newDigits = [] 
+    for (let str of num)
+        newDigits.push(parseInt(str))
+
+    return newDigits
+};
