@@ -1,0 +1,32 @@
+/#Day38
+//#100DaysOfProgramming
+//Time Spent:  mins
+//Summary of Challenge: Given a binary tree, check whether it is a mirror of itself (ie, symmetric around its center).
+//Thoughts: 
+
+
+var isSymmetric = function(root) {
+    //return recursive helper function
+    return mirror(root, root);                                             
+};
+
+function mirror(tree1, tree2) {
+    //base cases
+    
+    if (tree1 == null & tree2 == null)
+        return true;
+    
+    if (tree1 == null || tree2 == null)
+        return false;
+    
+    //induction step
+    //check if subtree roots are equal
+    //also check is L subtree L child == R child
+    //and L subtree R child == R subtree L child
+    return (tree1.val == tree2.val) && mirror(tree1.left, tree2.right)
+    
+    
+}
+
+//runtime: O(n) since we check every node;
+//space complexity: O(n) since the worst case is we can have a skewed tree, where height, h = n
