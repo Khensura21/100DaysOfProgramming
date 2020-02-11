@@ -1,0 +1,56 @@
+
+
+
+
+
+
+
+
+
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val) {
+ *     this.val = val;
+ *     this.left = this.right = null;
+ * }
+ */
+/**
+ * @param {number[]} inorder
+ * @param {number[]} postorder
+ * @return {TreeNode}
+ */
+var buildTree = function(inorder, postorder) {
+   
+    //first figure out the root node of each recursive 
+    //Then figure of L chil and R child of each call as well
+    //then figure the left subtree 
+    //1. Create a map object to hold the index of each num in inorder arr
+    //This helps avoid "indexOf"
+    let map = {};
+    for (let i = 0; i < inorder.length; i++){
+        map[inorder[i]] = i
+    }
+    function helper(low, high) {
+        if (low > high) return null;
+        let node = new TreeNode(postorder.pop());
+        let mid = map[node.val];
+        node.right = helper(mid+1, high);
+        node.left = helper(low, mid-1);
+        return node
+    }
+    return helper(0, inorder.length - 1)
+}
+// inorder =  L N R [9,3,15,20,7]
+// postorder = L R N [9]
+    
+//low = 0
+//high = 4
+//let mid = 3
+
+ //    3
+ //   / \
+ // 9   20
+//     /  \
+ //   15   7
+ //          \
+ //           null
