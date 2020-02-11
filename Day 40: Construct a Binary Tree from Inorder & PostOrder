@@ -1,10 +1,9 @@
-
-
-
-
-
-
-
+#Day40
+//#100DaysOfProgramming
+//Time Spent: 76 mins
+//Summary of Challenge: Given inorder and postorder traversal of a tree, construct the binary tree.
+//Thoughts: This was very challenging. I didn't want to give up on this. But recusion is something that needs alot of work from
+//me. So that why I decided to work on it for so long..smh. I have to go through this again
 
 
 /**
