@@ -1,0 +1,71 @@
+#Day41
+//#100DaysOfProgramming
+//Time Spent: 45 mins
+//Summary of Challenge: Design an algorithm to serialize and deserialize a binary tree. 
+//Thoughts: This was very challenging. A hard leetcode problem that took about 2 hours to solve!
+
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val) {
+ *     this.val = val;
+ *     this.left = this.right = null;
+ * }
+ */
+
+/**
+ * Encodes a tree to a single string.
+ *
+ * @param {TreeNode} root
+ * @return {string}
+ */
+var serialize = function(root) {
+    let encode = '';
+    
+    
+    function helper(node) {
+        
+       encode += ` ${node.val},`
+        if (node.left) 
+            helper(node.left)
+        else if (!root)
+             encode += 'X,' 
+         if (node.right) 
+            helper(node.right)
+         else if (!root)
+             encode += 'X,' 
+    }
+    // let leftSerial = serialize(root.left) + ""
+    // let rightSerial = serialize(root.right) +""
+    // console.log(root.val + "," + leftSerial + rightSerial)
+
+    helper(root)
+    console.log(encode)
+    return encode
+};
+
+/**
+ * Decodes your encoded data to tree.
+ *
+ * @param {string} data
+ * @return {TreeNode}
+ */
+var deserialize = function(data) {
+//     let list = data.split(",");
+//     return deserializeHelper(list)
+   
+//     function deserializeHelper(arr) {
+//          let value = arr.shift()
+//         if (value === 'X') return null
+       
+//         let newNode = new TreeNode(parseInt(value));
+//         newNode.left = deserializeHelper(arr)
+//         newNode.right = deserializeHelper(arr)
+//         return newNode;
+//     }
+    
+};
+
+/**
+ * Your functions will be called as such:
+ * deserialize(serialize(root));
+ */
