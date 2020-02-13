@@ -1,0 +1,21 @@
+#Day41
+//#100DaysOfProgramming
+//Time Spent: 45 mins
+//Summary of Challenge: Write a function that reverses a string. The input string is given as an array of characters char[].
+//Thoughts: This gave me a better understanding of my theme of the week, which is recursion!!!
+
+
+ */
+var reverseString = function(s) {
+    
+    
+    function helper(left, right){
+        if (left < right) {
+            [s[left], s[right]] =  [s[right], s[left]]
+            helper (left+1 , right-1)
+        }
+        
+    }
+    
+    helper(0,s.length-1)
+};
