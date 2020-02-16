@@ -1,0 +1,36 @@
+//Day43
+//#100DaysOfProgramming
+//Time Spent:  mins
+//Summary of Challenge: Given a linked list, swap every two adjacent nodes and return its head. 
+//Thoughts:Pretty 
+
+
+
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val) {
+ *     this.val = val;
+ *     this.left = this.right = null;
+ * }
+ */
+/**
+ * @param {TreeNode} root
+ * @param {number} val
+ * @return {TreeNode}
+ */
+var searchBST = function(root, val) {
+    
+    //recurrence relation
+    if (root && val > root.val) {
+        return searchBST(root.right, val)
+    }
+        
+   else if (root && val < root.val ) {
+        return searchBST(root.left, val)
+   }
+    //otherwise return the node itself-- its the val in question or null
+    return root
+};
+
+
+    
