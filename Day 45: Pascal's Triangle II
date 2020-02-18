@@ -1,0 +1,32 @@
+
+#Day45
+//#100DaysOfProgramming
+//Time Spent: 45 mins
+//Summary of Challenge: Given a non-negative index k where k ≤ 33, return the kth index row of the Pascal's triangle.
+//Thoughts: This was challenging. I was trying to implement it via recursion, but I end up having to do it iteratively. 
+//I have to definitely walk through this once more
+
+
+**
+ * @param {number} rowIndex
+ * @return {number[]}
+ */
+var getRow = function(rowIndex) {
+    //output array
+    let row = [1]
+    //we want to build the Pascal's triangle
+    // until the rowIndex
+    //once we get on the target rowIndex, we want to push each value in 
+    //that row , to the result's array
+    for (let i = 1; i <= rowIndex; i++){
+        for (let j = i; j > 0; j--){
+            if (j === i)
+                row[j] = 1;
+            else
+                row[j] = row[j-1] + row[j]
+        }
+    }
+      
+    return row;
+   
+};
