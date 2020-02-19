@@ -33,5 +33,5 @@ var fib = function(N) {
     return helper_recur(N)
 }
 
-Runtime : O(n^2)
+Runtime : O(n)
 space complexity: O(n)
