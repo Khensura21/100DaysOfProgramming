@@ -1,0 +1,37 @@
+//#Day46
+//#100DaysOfProgramming
+//Time Spent: 45 mins
+//Summary of Challenge: Given N, calculate F(N) where N denotes the Nth index of the Fibonacci Sequence
+//Thoughts: I definitely think I have a better understanding of it now that I've went through it again, using memoization technique.
+//I still need to figure out how to make it less intrusive with the hashtable/cache via a decorator perhaps
+
+
+var fib = function(N) {
+    //create a hashtable to store intermediate values to avoid duplication
+    let cache = {}
+    
+    function helper_recur(N) {
+        let result;
+        //check if we've calculated the Nth fib num
+        if (N in cache) {
+           return cache[N];
+        }
+        
+        //check if N is less than 2 --base case
+        if (N < 2) 
+              result = N
+        
+        //otherwise calculate the fib num based on its formula--recurrence relation
+        else 
+            result = fib(N - 1) + fib(N - 2)
+        
+        //catch result and return result
+        cache[N] = result
+        return result
+    }
+    
+    return helper_recur(N)
+}
+
+Runtime : O(n^2)
+space complexity: O(n)
