@@ -1,0 +1,48 @@
+//#Day49
+//#100DaysOfProgramming
+//Time Spent: 45 mins
+//Summary of Challenge: Given a linked list, remove the n-th node from the end of list and return its head.
+//Thoughts: This was tricky because I had'nt worked with link list in a while!
+//Runtime: o(L), where L is the length of the link list
+//Space Complexity: o(1), only constant space was used
+
+/**
+ * Definition for singly-linked list.
+ * function ListNode(val) {
+ *     this.val = val;
+ *     this.next = null;
+ * }
+ */
+/**
+ * @param {ListNode} head
+ * @param {number} n
+ * @return {ListNode}
+ */
+var removeNthFromEnd = function(head, n) {
+    // if (!head) return null;
+    // if(!head.next && n == 1 ) return null
+    let dumNode = new ListNode(0);
+    dumNode.next  = head;
+    let len = 0;
+    let prev = head; 
+    
+    
+    
+    while (prev) {
+        prev = prev.next
+        len++;
+    }
+    
+    prev = dumNode;
+    let idxToRemove = len - n 
+    
+    while (idxToRemove != 0) {
+        --idxToRemove 
+        prev = prev.next;
+        
+    }
+    // D->1->2->3->4->5
+    prev.next = prev.next.next
+  return dumNode.next
+
+};
