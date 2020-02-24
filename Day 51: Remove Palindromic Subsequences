@@ -1,0 +1,31 @@
+//#Day51
+//#100DaysOfProgramming
+//Time Spent: 60 mins
+//Summary of Challenge: Given a string s consisting only of letters 'a' and 'b'. In a single step you can remove one palindromic subsequence from s.
+//Thoughts: I didn't understand what the problem was really asking. Plus I didn't truly understand the different between subsequences 
+//versus subarrays
+
+**
+ * @param {string} s
+ * @return {number}
+ */
+var removePalindromeSub = function(s) {
+    //base cases
+    //1. Check if the string is already empty
+    if (s === '') {
+        return 0
+    }
+    //2. Check if the str is a palindrome, if so, return 1 
+    //since we can delete a palandromic subsequence in 1 pass
+    
+    if (s == s.split('').reverse().join('')) {
+        return 1
+    }
+    //Otherwise, we will need at least two operations to make an empty string out of a str
+    //consisting of only a's and b's initially
+    return 2
+    
+};
+
+//runtime: O(n), for the .reverse(),split(), and join() methods
+//space: O(1) since we don't use 
