@@ -1,0 +1,35 @@
+//#Day 50
+//#100DaysOfProgramming
+//Time Spent: 30 mins
+//Summary of Challenge: Given a m * n matrix grid which is sorted in non-increasing order both row-wise and column-wise. 
+//Thoughts: Pretty straight forward solution
+
+/**
+ * @param {number[][]} grid
+ * @return {number}
+ */
+var countNegatives = function(grid) {
+    
+    let count  = 0;
+    
+    for ( let i = 0; i < grid.length; i++) {
+        for (let j = 0; j < grid[i].length; j++) {
+            if (grid[i][j] < 0) {
+                count++;
+            }
+        }
+    }
+    return count
+
+// optimized version
+
+//     let negNumsArrs = grid.map(nums => nums.filter(num => num < 0))
+//     let arr = [];
+
+//     for (let i = 0; i < negNumsArrs.length; i++) {
+//         arr.push(...negNumsArrs[i])
+//     }   
+
+//     return  arr.length;
+
+};
