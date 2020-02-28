@@ -1,3 +1,9 @@
+//#Day27
+//#100DaysOfProgramming
+//Time Spent: 45 mins
+//Summary of Challenge: Given 2 binary trees, merge them.
+
+
 /**
  * Definition for a binary tree node.
  * function TreeNode(val) {
