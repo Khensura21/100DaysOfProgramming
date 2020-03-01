@@ -1,4 +1,7 @@
-Implement pow(x, n), which calculates x raised to the power n (xn).
+//#Day53
+//#100DaysOfProgramming
+//Time Spent: 45 mins
+//Summary of Challenge: Implement pow(x, n), which calculates x raised to the power n (xn).
 
 **
  * @param {number} x
